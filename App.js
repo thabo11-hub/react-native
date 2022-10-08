@@ -21,6 +21,13 @@ export default function App() {
     setTask(null); //sets the task to empty
   };
 
+  const completeTask = (index) => {
+    let itemsCopy = [...taskItems];
+
+    itemsCopy.splice(index, 1);
+    setTaskItems(itemsCopy);
+  };
+
   return (
     <View style={styles.container}>
       {/*todays todo*/}
@@ -29,8 +36,11 @@ export default function App() {
 
         <View style={styles.items}>
           {/*This is where the tasks will go*/}
-          {taskItems.map((items) => {
-            return <Task key={index} text={items} />;
+          {taskItems.map((items,index) => {
+            return (
+            <TouchableOpacity key={index} onPress={() => completeTask(index)}>
+              <Task text={items} />
+            </TouchableOpacity> )
           })}
           <Task />
         </View>
