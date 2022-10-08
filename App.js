@@ -15,7 +15,7 @@ export default function App() {
   const [taskItems, setTaskItems] = useState([]);
 
   const handleAddTask = () => {
-    setTaskItems([...taskItems,task]); //(...taskItems) Puts out everything that was in taskItems and append task
+    setTaskItems([...taskItems, task]); //(...taskItems) Puts out everything that was in taskItems and append task
     setTask(null); //sets the task to empty
   };
 
@@ -27,6 +27,9 @@ export default function App() {
 
         <View style={styles.items}>
           {/*This is where the tasks will go*/}
+          {taskItems.map((items) => {
+            return <Task key={index} text={items} />;
+          })}
           <Task />
         </View>
       </View>
