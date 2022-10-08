@@ -12,9 +12,11 @@ import {
 
 export default function App() {
   const [task, setTask] = useState();
+  const [taskItems, setTaskItems] = useState([]);
 
   const handleAddTask = () => {
-    
+    setTaskItems([...taskItems,task]); //(...taskItems) Puts out everything that was in taskItems and append task
+    setTask(null); //sets the task to empty
   };
 
   return (
