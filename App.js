@@ -8,6 +8,7 @@ import {
   TextInput,
   View,
   TouchableOpacity,
+  Keyboard,
 } from "react-native";
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
   const [taskItems, setTaskItems] = useState([]);
 
   const handleAddTask = () => {
+    Keyboard.dismiss();
     setTaskItems([...taskItems, task]); //(...taskItems) Puts out everything that was in taskItems and append task
     setTask(null); //sets the task to empty
   };
